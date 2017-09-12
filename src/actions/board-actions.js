@@ -1,20 +1,35 @@
 import * as types from '../constants/action-types';
-
-// example of a thunk using the redux-thunk middleware
-export function updateBoard(payload) {
-  return function (dispatch) {
-    // thunks allow for pre-processing actions, calling apis, and dispatching multiple actions
-    // in this case at this point we could call a service that would persist the fuel savings
-    return dispatch({
-      type: types.UPDATE_BOARD,
-      payload
-    });
+export function startNewGame(payload) {
+  return {
+    type: types.START_NEW_GAME,
+    payload
   };
 }
 
-export function updateGameState(payload) {
+export function revealBlock(payload) {
   return {
-    type: types.CALCULATE_FUEL_SAVINGS,
+    type: types.REVEAL_BLOCK,
+    payload
+  };
+}
+
+export function flagBlock(payload) {
+  return {
+    type: types.FLAG_BLOCK,
+    payload
+  };
+}
+
+export function gameLost(payload) {
+  return {
+    type: types.GAME_LOST,
+    payload
+  };
+}
+
+export function gameWon(payload) {
+  return {
+    type: types.GAME_WON,
     payload
   };
 }

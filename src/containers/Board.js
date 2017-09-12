@@ -8,7 +8,7 @@ import Board from '../components/Board';
 export const BoardContainer = (props) => {
   return (
     <Board
-      board={props.board}
+      {...props}
     />
   );
 };

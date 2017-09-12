@@ -18,3 +18,112 @@ html, body, .container {
   overflow-y: auto;
 }
 
+.panel {
+  button {
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    text-align: center;
+    background: steelblue;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    outline: 0;
+    padding: 8px;
+    margin: 8px auto
+  }
+}
+
+
+.board {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  position: relative;
+  border: 3px solid #00B280;
+  margin: 8px auto;
+
+  h2 {
+    text-align: center;
+  }
+  .block {
+    background-image: url('../assets/images/sprites.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &.default {
+      background-position-x: -2px;
+      background-position-y: -53px;
+    }
+
+    &.flagged {
+      background-position-x: -36px;
+      background-position-y: -70px;
+    }
+
+    &.mine {
+      background-position-x: -87px;
+      background-position-y: -53px;
+    }
+
+    &.mine-red {
+      background-position-x: -104px;
+      background-position-y: -53px;
+    }
+
+    &.mine-cross {
+      background-position-x: -121px;
+      background-position-y: -53px;
+    }
+
+    &.number-0 {
+      background-position-x: -19px;
+      background-position-y: -53px;
+    }
+
+    &.number-1 {
+      background-position-x: -2px;
+      background-position-y: -70px;
+    }
+
+    &.number-2 {
+      background-position-x: -19px;
+      background-position-y: -70px;
+    }
+
+    &.number-3 {
+      background-position-x: -36px;
+      background-position-y: -70px;
+    }
+
+    &.number-4 {
+      background-position-x: -53px;
+      background-position-y: -70px;
+    }
+
+    &.number-5 {
+      background-position-x: -70px;
+      background-position-y: -70px;
+    }
+
+    &.number-6 {
+      background-position-x: -87px;
+      background-position-y: -70px;
+    }
+
+    &.number-7 {
+      background-position-x: -104px;
+      background-position-y: -70px;
+    }
+
+    &.number-8 {
+      background-position-x: -121px;
+      background-position-y: -70px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export class Board {
+export default class Board {
   /**
    * Create an instance of a board based on width, height and number
    * of mines.
@@ -20,6 +20,18 @@ export class Board {
     this.addMines()
   }
 
+  getGameState() {
+    const { width, height, mines, spots, lost } = this;
+
+    return {
+      width,
+      height,
+      mines,
+      spots,
+      lost
+    };
+  }
+
   /**
    * Create an array for the board.
    *
@@ -29,7 +41,7 @@ export class Board {
   generateBoard() {
     this.spots = []
     for (var i = 0; i < this.height * this.width; i++) {
-      this.spots.push({ cleared: false, mine: false })
+      this.spots.push({ cleared: false, flagged: false, mine: false })
     }
   }
 
@@ -52,6 +64,15 @@ export class Board {
     for (var i = 0; i < mineLocations.length; i++) {
       this.spots[mineLocations[i]].mine = true
     }
+  }
+
+  /**
+   * Flag spot on board. Spot becomes disabled until right clicked agin.
+   *
+   * @param i the index of the space to flag.
+   */
+  toggleFlagSpot(i) {
+    this.spots[i].flagged = !this.spots[i].flagged;
   }
 
   /**
